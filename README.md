@@ -40,7 +40,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/trainity.git
+   git clone https://github.com/gonzalo-cordoba/trainity-app.git
    cd trainity
    ```
 
