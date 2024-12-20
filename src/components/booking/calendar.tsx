@@ -52,7 +52,7 @@ export function BookingCalendar() {
               <Button
                 key={time}
                 variant="outline"
-                className="w-full justify-start hover:bg-primary hover:text-primary-foreground"
+                className="w-full justify-start text-black hover:bg-primary hover:text-primary-foreground"
               >
                 <Clock className="mr-2 h-4 w-4" />
                 {time}
