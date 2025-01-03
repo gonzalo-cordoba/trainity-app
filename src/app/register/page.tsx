@@ -5,19 +5,25 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
-import { ArrowRight, Github } from "lucide-react";
+import { ArrowRight, Github, Eye, EyeOff } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
+    password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Here you would typically handle the registration process
+    console.log("Registration data:", formData);
     router.push("/dashboard");
   };
 
@@ -45,11 +51,11 @@ export default function LoginPage() {
             className="absolute top-1/4 left-8 max-w-sm"
           >
             <h1 className="text-4xl font-bold text-white mb-4">
-              F2 Performance Gym
+              Start your fitness journey today
             </h1>
             <p className="text-gray-400">
-              Transforma tu cuerpo, desafía tus límites. Únete a la comunidad
-              que te lleva al siguiente nivel.
+              Join our community and get access to personalized workout plans,
+              expert trainers, and more.
             </p>
           </motion.div>
 
@@ -79,24 +85,37 @@ export default function LoginPage() {
             className="absolute bottom-1/4 left-24 w-48 h-48 rounded-full bg-gradient-to-r from-purple-600/30 to-mint-green/30 blur-2xl"
           />
 
-          {/* Stats */}
-          <div className="absolute bottom-12 left-8 grid grid-cols-3 gap-8">
+          {/* Features */}
+          <div className="absolute bottom-12 left-8 grid grid-cols-2 gap-8">
             {[
-              { number: "500+", label: "Miembros activos" },
-              { number: "50+", label: "Entrenadores expertos" },
-              { number: "100%", label: "Satisfaccion" },
-            ].map((stat, index) => (
+              {
+                title: "Personalized Plans",
+                description: "Tailored workouts just for you",
+              },
+              {
+                title: "Expert Trainers",
+                description: "Learn from the best in the industry",
+              },
+              {
+                title: "Progress Tracking",
+                description: "Monitor your fitness journey",
+              },
+              {
+                title: "Community Support",
+                description: "Connect with like-minded individuals",
+              },
+            ].map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 * index }}
-                className="text-center"
+                className="bg-gray-800/50 p-4 rounded-lg backdrop-blur-sm"
               >
-                <div className="text-2xl font-bold text-white mb-1">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <h3 className="text-lg font-semibold text-white mb-1">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-gray-400">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -113,52 +132,108 @@ export default function LoginPage() {
         >
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-2">
-              ¡Bienvenido/a! 👋
+              Crea tu cuenta
             </h2>
             <p className="text-gray-400">
-              Ingrese sus credenciales para acceder a su cuenta
+              Únete a nosotros y comienza tu viaje de fitness hoy
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-4">
-              <div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="firstName" className="text-white">
+                  Nombre
+                </Label>
                 <Input
-                  type="text"
+                  id="firstName"
                   name="firstName"
-                  placeholder="Nombre"
+                  type="text"
                   value={formData.firstName}
                   onChange={handleChange}
+                  required
                   className="h-12 bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-mint-green focus:ring-mint-green/20"
                 />
               </div>
-              <div>
+              <div className="space-y-2">
+                <Label htmlFor="lastName" className="text-white">
+                  Apellido
+                </Label>
                 <Input
-                  type="text"
+                  id="lastName"
                   name="lastName"
-                  placeholder="Apellido"
+                  type="text"
                   value={formData.lastName}
                   onChange={handleChange}
+                  required
                   className="h-12 bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-mint-green focus:ring-mint-green/20"
                 />
               </div>
-              <div>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-white">
+                Email
+              </Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="h-12 bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-mint-green focus:ring-mint-green/20"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-white">
+                Contraseña
+              </Label>
+              <div className="relative">
                 <Input
-                  type="email"
-                  name="email"
-                  placeholder="nombre@ejemplo.com"
-                  value={formData.email}
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  value={formData.password}
                   onChange={handleChange}
-                  className="h-12 bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-mint-green focus:ring-mint-green/20"
+                  required
+                  className="h-12 bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-mint-green focus:ring-mint-green/20 pr-10"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-white"
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-5 w-5" />
+                  ) : (
+                    <Eye className="h-5 w-5" />
+                  )}
+                </button>
               </div>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="terms"
+                className="border-gray-700 text-mint-green focus:ring-mint-green/20"
+              />
+              <Label htmlFor="terms" className="text-sm text-gray-400">
+                Acepto los{" "}
+                <a href="#" className="text-mint-green hover:underline">
+                  Términos de servicio
+                </a>{" "}
+                y{" "}
+                <a href="#" className="text-mint-green hover:underline">
+                  políticas de privacidad
+                </a>
+              </Label>
             </div>
 
             <Button
               type="submit"
               className="w-full h-12 bg-gradient-to-r from-mint-green to-mint-green/80 text-gray-900 hover:from-mint-green/90 hover:to-mint-green/70 transition-all duration-300"
             >
-              Inicia sesión en tu cuenta
+              Crear cuenta
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
 
@@ -210,12 +285,12 @@ export default function LoginPage() {
             </div>
 
             <p className="mt-6 text-center text-sm text-gray-400">
-              ¿No tienes una cuenta?{" "}
+              ¿Ya tienes una cuenta?{" "}
               <Link
-                href="/register"
+                href="/login"
                 className="text-mint-green hover:text-mint-green/80 transition-colors"
               >
-                Regístrate gratis
+                Iniciar sesión
               </Link>
             </p>
           </form>
