@@ -44,11 +44,11 @@ export default function LoginPage() {
             className="absolute top-1/4 left-8 max-w-sm"
           >
             <h1 className="text-4xl font-bold text-white mb-4">
-              Transform your fitness journey
+              F2 Performance Gym
             </h1>
             <p className="text-gray-400">
-              Join our community and experience a new way of achieving your
-              fitness goals
+              Transforma tu cuerpo, desafía tus límites. Únete a la comunidad
+              que te lleva al siguiente nivel.
             </p>
           </motion.div>
 
@@ -81,9 +81,9 @@ export default function LoginPage() {
           {/* Stats */}
           <div className="absolute bottom-12 left-8 grid grid-cols-3 gap-8">
             {[
-              { number: "500+", label: "Active Members" },
-              { number: "50+", label: "Expert Trainers" },
-              { number: "100%", label: "Satisfaction" },
+              { number: "500+", label: "Miembros activos" },
+              { number: "50+", label: "Entrenadores expertos" },
+              { number: "100%", label: "Satisfaccion" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -112,10 +112,10 @@ export default function LoginPage() {
         >
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-2">
-              Welcome Back 👋
+              ¡Bienvenido/a! 👋
             </h2>
             <p className="text-gray-400">
-              Enter your credentials to access your account
+              Ingrese sus credenciales para acceder a su cuenta
             </p>
           </div>
 
@@ -125,7 +125,7 @@ export default function LoginPage() {
                 <Input
                   type="text"
                   name="firstName"
-                  placeholder="First Name"
+                  placeholder="Nombre"
                   value={formData.firstName}
                   onChange={handleChange}
                   className="h-12 bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-mint-green focus:ring-mint-green/20"
@@ -135,7 +135,7 @@ export default function LoginPage() {
                 <Input
                   type="text"
                   name="lastName"
-                  placeholder="Last Name"
+                  placeholder="Apellido"
                   value={formData.lastName}
                   onChange={handleChange}
                   className="h-12 bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-mint-green focus:ring-mint-green/20"
@@ -145,7 +145,7 @@ export default function LoginPage() {
                 <Input
                   type="email"
                   name="email"
-                  placeholder="name@example.com"
+                  placeholder="nombre@ejemplo.com"
                   value={formData.email}
                   onChange={handleChange}
                   className="h-12 bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-mint-green focus:ring-mint-green/20"
@@ -157,7 +157,7 @@ export default function LoginPage() {
               type="submit"
               className="w-full h-12 bg-gradient-to-r from-mint-green to-mint-green/80 text-gray-900 hover:from-mint-green/90 hover:to-mint-green/70 transition-all duration-300"
             >
-              Sign in to your account
+              Inicia sesión en tu cuenta
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
 
@@ -167,7 +167,7 @@ export default function LoginPage() {
               </div>
               <div className="relative flex justify-center text-xs uppercase">
                 <span className="bg-[#1A1D1F] px-2 text-gray-400">
-                  Or continue with
+                  O continuar con
                 </span>
               </div>
             </div>
@@ -209,12 +209,12 @@ export default function LoginPage() {
             </div>
 
             <p className="mt-6 text-center text-sm text-gray-400">
-              Dont have an account?{" "}
+              ¿No tienes una cuenta?{" "}
               <a
                 href="#"
                 className="text-mint-green hover:text-mint-green/80 transition-colors"
               >
-                Sign up for free
+                Regístrate gratis
               </a>
             </p>
           </form>

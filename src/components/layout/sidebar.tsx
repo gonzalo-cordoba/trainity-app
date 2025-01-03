@@ -28,7 +28,7 @@ const menuItems = [
         active: true,
       },
       {
-        title: "Transactions",
+        title: "Transacciones",
         icon: ArrowRightLeft,
         href: "/transactions",
       },
@@ -38,32 +38,32 @@ const menuItems = [
         href: "/goals",
       },
       {
-        title: "Investment",
+        title: "Finanzas",
         icon: BarChart3,
         href: "/investment",
       },
       {
-        title: "Bills and Payment",
+        title: "Facturas y pago",
         icon: CreditCard,
         href: "/bills",
       },
       {
-        title: "Analytics and Reports",
+        title: "Análisis e informes",
         icon: FileText,
         href: "/reports",
       },
     ],
   },
   {
-    title: "SUPPORT",
+    title: "Soporte",
     items: [
       {
-        title: "Helpers",
+        title: "Ayudantes",
         icon: HelpCircle,
         href: "/help",
       },
       {
-        title: "Settings",
+        title: "Configuracion",
         icon: Settings,
         href: "/settings",
       },
@@ -77,8 +77,8 @@ function SidebarContent() {
       <div className="flex items-center gap-2 mb-8">
         <div className="w-8 h-8 bg-mint-green rounded-full" />
         <div>
-          <h2 className="text-white font-semibold">Finanxic</h2>
-          <p className="text-gray-400 text-xs">Financial Assistant</p>
+          <h2 className="text-white font-semibold">Nombre y Apellido</h2>
+          <p className="text-gray-400 text-xs">Administrador</p>
         </div>
       </div>
       <nav className="space-y-6">
