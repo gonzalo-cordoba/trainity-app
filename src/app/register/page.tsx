@@ -1,6 +1,7 @@
 "use client";
 
-import { FeatureSection, RegisterForm } from "@/components/register";
+import { FeatureSection } from "@/components/register";
+import RegisterForm from "@/components/register/register-form";
 
 export default function RegisterPage() {
   return (
